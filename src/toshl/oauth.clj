@@ -7,7 +7,8 @@
 
 (defn login []
   (println "Please login on Toshl.com.")
-  (println "Paste the auth code here: ")
+  (print "Paste the auth code here: ")
+  (flush)
   (authorize)
   (let [response (get-token (read-line))
         response-body (get @response :body)
