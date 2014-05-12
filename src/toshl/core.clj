@@ -1,6 +1,9 @@
 (ns toshl.core
-  (:gen-class))
+  (:gen-class)
+  (require [toshl.oauth :as oauth]
+           [toshl.expense :as expense]))
 
 (defn -main
   [& args]
-  (println "Hello, World!"))
+  (let [access-token (oauth/login)]
+    (map println (expense/all access-token))))
