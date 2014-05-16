@@ -17,9 +17,9 @@
   (let [attributes {"amount" (:amount attributes)
                     "date"   (:date attributes)
                     "tags[]" (:tags attributes)}]
-      (http/post "https://api.toshl.com/expenses/"
-                 {:oauth-token access-token
-                  :form-params attributes})))
+    (http/post "https://api.toshl.com/expenses/"
+               {:oauth-token access-token
+                :form-params attributes})))
 
 (defn- in-words [expense]
   (str (:amount expense) " " (:currency expense) " on " (:date expense) ".
