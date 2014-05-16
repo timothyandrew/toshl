@@ -17,7 +17,10 @@
 
 (defn authorize []
   (browse-url
-   (format "https://toshl.com/oauth2/authorize?client_id=%s&response_type=code&state=state" client-id)))
+   (format
+    "https://toshl.com/oauth2/authorize?client_id=%s&response_type=code&state=state&scope=%s"
+    client-id
+    "expenses:rw")))
 
 (defn get-token [code]
   (http/post "https://toshl.com/oauth2/token"
